@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 
 ATTENDEE_URL = 'https://ithelp.ithome.com.tw/2022ironman/signup/list'
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
 
 
 def parse_data(list_card_element):
@@ -21,8 +22,7 @@ def parse_data(list_card_element):
 
 
 def parse_page(url):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+    headers = {'User-Agent': USER_AGENT}
     response = requests.get(f'{ATTENDEE_URL}', headers=headers)
     soup = BeautifulSoup(response.text, "html.parser")
     list_card_elements = soup.findAll('section', class_='sec-contestants')[0].findAll('div', class_='list-card')
@@ -43,9 +43,7 @@ def get_web_page(page):
 
 def update_page_info(url, my_hash={}):
     print('updating item ...')
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
-    }
+    headers = {'User-Agent': USER_AGENT}
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, "html.parser")
     my_hash['follower_number'] = int(soup.find('span', class_='profile-header__follow-num').getText())
@@ -62,7 +60,11 @@ def main():
         attendee_list = parse_page(get_web_page(page))
 
     for a_item in attendee_list:
+        time.sleep(random.uniform(1, 3.3))
         update_page_info(a_item['link'], a_item)
 
+    print(attendee_list)
 
-main()
+
+if __name__ == '__main__':
+    main()
