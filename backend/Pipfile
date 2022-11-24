@@ -6,6 +6,15 @@ name = "pypi"
 [packages]
 requests = "*"
 beautifulsoup4 = "*"
+click = "*"
+flask = "*"
+gunicorn = "*"
+itsdangerous = "*"
+jinja2 = "*"
+markupsafe = "*"
+werkzeug = "*"
+python-dotenv = "*"
+pymongo = "*"
 
 [dev-packages]
 
