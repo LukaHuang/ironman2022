@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config["MONGO_URI"] = f"{MONGO_URI}"
 mongo = PyMongo(app)
 collection = mongo.db.get_collection(COLLECTION_NAME)
-print(list(collection.find()))
+
 
 @app.route('/')
 def hello():
@@ -23,7 +23,21 @@ def hello():
 @app.route('/ironman2022')
 def ironman2022():
     ironman_list = list(collection.find())
-    return jsonify({"ironman_list": ironman_list})
+    result = []
+    index = 0
+    for ironman in ironman_list:
+        index += 1
+        result.append({"id": index,
+                     'author_name': ironman['author_name'],
+                     'title': ironman['title'],
+                     'link': ironman['link'],
+                     'description': ironman['description'],
+                     'progress': ironman['progress'],
+                     'tag': ironman['tag'],
+                     'follower_number': ironman['follower_number'],
+                     'page_view': ironman['page_view']
+                     })
+    return jsonify({"ironman_list": result})
 
 
 if __name__ == "__main__":
