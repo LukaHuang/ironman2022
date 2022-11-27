@@ -5,6 +5,7 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@mui/utils": "latest",
+    "@mui/x-data-grid": "^5.17.13",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "react": "latest",
