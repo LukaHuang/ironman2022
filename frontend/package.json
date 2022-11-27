@@ -1,18 +1,21 @@
 {
-  "name": "create-react-app-with-typescript",
-  "version": "5.0.0",
-  "private": true,
   "dependencies": {
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "@mui/utils": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-scripts": "latest",
     "typescript": "latest"
   },
+  "description": "https://github.com/mui/material-ui/blob/v5.10.14/docs/data/material/components/tables/EnhancedTable.tsx",
+  "devDependencies": {
+    "react-scripts": "latest"
+  },
+  "main": "index.tsx",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
