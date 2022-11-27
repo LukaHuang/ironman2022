@@ -1,6 +1,6 @@
-# fly.toml file generated for ancient-sun-5644 on 2022-11-26T03:22:59+08:00
+# fly.toml file generated for winter-darkness-4385 on 2022-11-27T23:09:17+08:00
 
-app = "ancient-sun-5644"
+app = "winter-darkness-4385"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
