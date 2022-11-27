@@ -7,9 +7,7 @@ import Container from '@mui/material/Container';
 ReactDOM.createRoot(document.querySelector("#root")!).render(
   <React.StrictMode>
     <StyledEngineProvider injectFirst>
-      
-      <Demo />
-      
+        <Demo />
     </StyledEngineProvider>
   </React.StrictMode>
 );
